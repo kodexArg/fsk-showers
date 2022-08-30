@@ -1,0 +1,9 @@
+{
+    "files.exclude": {
+        ".vscode": true,
+        "**/__pycache__/": true,
+        "**/.gitignore": true,
+        "venv/": true
+    },
+    "python.formatting.provider": "black"
+}

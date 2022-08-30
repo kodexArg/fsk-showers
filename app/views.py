@@ -1,12 +1,13 @@
-from app import app
+from flask import Blueprint, render_template
+
+crud = Blueprint('crud', __name__)
 
 
-
-@app.route("/")
+@crud.route('/')
 def index():
-    return "Hellow World!"
+    return render_template('index.html')
 
 
-@app.route("/about")
+@crud.route('/about')
 def about():
-    return "About!"
+    return "About Here"

@@ -1,5 +1,6 @@
 from flask import Flask
+from app.views import crud
+
 
 app = Flask(__name__)
-
-from app import views
+app.register_blueprint(crud)
