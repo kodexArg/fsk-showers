@@ -1,9 +1,20 @@
 {
     "files.exclude": {
+        ".venv/": true,
         ".vscode": true,
         "**/__pycache__/": true,
         "**/.gitignore": true,
         "venv/": true
     },
-    "python.formatting.provider": "black"
+    "python.formatting.provider": "black",
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "test",
+            "group": "testing",
+            "database": "${workspaceFolder:fsk-showers}/app.sqlite"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
 }

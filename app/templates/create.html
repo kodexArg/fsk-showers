@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Create</h1>
+
+<form action="{{ url_for('crud.create_view') }}" method="POST">
+    {{ form.csrf_token }}
+    {{ form.author.label }}{{ form.author(size=20) }}
+    {{ form.client.label }}{{ form.client(size=20) }}
+    {{ form.plan_price.label }}{{ form.plan_price(size=20) }}
+    {{ form.submit }}
+</form>
+
+
+{% endblock %}
