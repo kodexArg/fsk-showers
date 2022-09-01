@@ -1,5 +1,6 @@
 # This Project
 mariadb/
+db/
 .vscode
 
 # Byte-compiled / optimized / DLL files

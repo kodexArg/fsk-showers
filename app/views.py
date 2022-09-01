@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from app import db
+from app.db import db
 from app.forms import TicketForm
 from app.models import TicketModel
 

@@ -2,13 +2,13 @@ version: "3.7"
 services:
   db:
     container_name: db
-    image: yobasystems/alpine-mariadb
+    image: mysql:8.0
     restart: always
     volumes:
-      - ./mariadb:/var/lib/mysql
+      - ./db:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=ticketdb
+      - MYSQL_DATABASE=dbticket
       - MYSQL_USER=tkuser
       - MYSQL_PASSWORD=tkpass
     ports:
