@@ -1,9 +1,5 @@
-{% extends 'base.html' %}
-
+{% extends "base.html" %}
 {% block content %}
-
-<h1>Index</h1>
-
-<a href="/create">Create...</a>
-
-{% endblock %}
+    <h1>Index</h1>
+    <a href="{{ url_for('create') }}">Create...</a>
+{% endblock content %}
