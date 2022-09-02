@@ -1,9 +1,7 @@
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from app.db import db
 from app.views import crud
-
 
 
 def create_app(test_config=None):

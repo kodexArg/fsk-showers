@@ -13,7 +13,7 @@ class Config(object):
     DEBUG = False
     TESTING = False
     CSRF_ENABLED = True
-    SECRET_KEY = os.environ.get("FLASK_APP_SECRET_KEY") or "0#$xr1zzc34555"
+    SECRET_KEY = os.environ.get("FLASK_APP_SECRET_KEY") or "0#$xr189687lkjhjbnlzzc34555"
     SQLALCHEMY_DATABASE_URI = f"mysql+pymysql://{mysql_user}:{quote(mysql_pass)}@{mysql_host}/{mysql_ddbb}"
 
 
