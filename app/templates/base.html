@@ -31,7 +31,12 @@
             {% block footer %}
                 {% with messages = get_flashed_messages() %}
                     {% if messages %}
-                        {% for message in messages %}{{ messages }}{% endfor %}
+                        {% for message in messages %}
+                        <div class="alert alert-info">
+                            <button type="button" class="close" data-dismiss="alert">%times;</button>
+                            {{ messages }}
+                        </div>
+                        {% endfor %}
                     {% endif %}
                 {% endwith %}
             {% endblock footer %}

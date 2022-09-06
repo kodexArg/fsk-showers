@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from app.db import db
 from app.forms import TicketForm
-from app.models import TicketModel
+from app.models import Ticket
 
 # import logging
 
@@ -19,7 +19,7 @@ def index_view():
 
 @crud.route("/list")
 def list_view():
-    tks = TicketModel.query.all()
+    tks = Ticket.query.all()
     return render_template("list.html", tks=tks)
 
 
@@ -27,7 +27,7 @@ def list_view():
 def create_view():
     form = TicketForm()
     if form.validate_on_submit():
-        new_record = TicketModel(
+        new_record = Ticket(
             author=request.form["author"],
             client=request.form["client"],
             plan_price=request.form["plan_price"],
@@ -45,7 +45,7 @@ def create_view():
 # DELETE
 @crud.route("/delete/<int:id>")
 def delete_view(id):
-    record = TicketModel.query.get(id)
+    record = Ticket.query.get(id)
     db.session.delete(record)
     db.session.commit()
     flash("Registro eliminado.")
