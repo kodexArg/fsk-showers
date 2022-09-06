@@ -12,5 +12,4 @@ class TicketForm(FlaskForm):
     author = StringField("Responsable", validators=[DataRequired()])
     client = StringField("Cliente", validators=[DataRequired()])
     plan_price = StringField("Plan", validators=[Optional()])
-    timestamp = DateTimeField("Timestamp", default=get_timestamp())
     submit = SubmitField("Guardar")

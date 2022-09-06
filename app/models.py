@@ -11,6 +11,7 @@ class TicketModel(db.Model):
         self.author = author
         self.client = client
         self.plan_price = plan_price
+    
 
     def __repr__(self):
-       return f"<id {self.id}>"
+        return f"<id {self.id}>"

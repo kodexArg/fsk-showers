@@ -1,11 +1,25 @@
 {% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}Create{% endblock title %}
+
 {% block content %}
-    <h1>Create</h1>
-    <form action="{{ url_for('crud.create_view') }}" method="post">
-        {{ form.csrf_token }}
-        {{ form.author.label }} {{ form.author(size=20) }}
-        {{ form.client.label }} {{ form.client(size=20) }}
-        {{ form.plan_price.label }} {{ form.plan_price(size=10) }}
-        {{ form.submit }}
-    </form>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <div class="panel-title">Create New</div>
+        </div>
+        <div class="panel-body">
+            {{ wtf.quick_form(form) }}
+
+        {# 
+            
+            <form action="{{ url_for('crud.create_view') }}" method="post">
+                {{ form.csrf_token }}
+                {{ form.author.label }} {{ form.author(size=20) }}
+                {{ form.client.label }} {{ form.client(size=20) }}
+                {{ form.plan_price.label }} {{ form.plan_price(size=10) }}
+                {{ form.submit }}
+            </form>
+        </div>
+        #}
+    </div>
 {% endblock content %}

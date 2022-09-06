@@ -6,19 +6,40 @@
         <meta name="keywords" content="KM1107 KM1151 Uspallata"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}"/>
+        <link rel="stylesheet" href="{{ bootstrap_find_resource('css/bootstrap.css', cdn='bootstrap') }}"/>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}"/>
+
         <title>
-            {% block title %}{% endblock title %}
+            {% block title %}Index{% endblock title %}
         </title>
     </head>
+
     <body>
         <header>
-            {% block header %}{% endblock header %}
+            {% block header %}
+                {% include('partials/_navbar.html') %}
+            {% endblock header %}
         </header>
         <main>
-            {% block content %}{% endblock content %}
+            <div class="contaner">
+                {% block content %}
+                {% endblock content %}
+            </div>
         </main>
         <footer>
-            {% block footer %}{% endblock footer %}
+            {% block footer %}
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}{{ messages }}{% endfor %}
+                    {% endif %}
+                {% endwith %}
+            {% endblock footer %}
         </footer>
+        {% block scripts %}
+            <script src="{{ bootstrap_find_resource('jquery.js', cdn='jquery') }}"></script>
+            <script src="{{ bootstrap_find_resource('js/bootstrap.js', cdn='bootstrap') }}"></script>
+        {% endblock scripts %}
     </body>
+
 </html>

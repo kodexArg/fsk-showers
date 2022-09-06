@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}List{% endblock title %}
+
+{% block content %}
+    <div>
+        <table class="table">
+            <tr>
+                <th scope="col">TK</th>
+                <th scope="col">Cliente</th>
+                <th scope="col">Responsable</th>
+                <th scope="col">Marca de Tiempo</th>
+                <th scope="col">Acciones</th>
+            </tr>
+            {% for tk in tks %}
+            <tr>
+                <td>{{ tk.id }}</td>
+                <td>{{ tk.client }}</td>
+                <td>{{ tk.author }}</td>
+                <td>{{ tk.timestamp }}</td>
+                <td>
+                    <a href="{{ url_for('crud.delete_view', id=tk.id) }}" class="small">delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock content %}

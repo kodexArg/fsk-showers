@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Update{% endblock title %}
+
+{% block content %}
+    <form action="{{ url_for('crud.update_view', id=id) }}" method="post">
+        {{ form.csrf_token }}
+        {{ form.author.label }} {{ form.author(size=20) }}
+        {{ form.client.label }} {{ form.client(size=20) }}
+        {{ form.plan_price.label }} {{ form.plan_price(size=10) }}
+        {{ form.submit }}
+    </form>
+{% endblock content %}
