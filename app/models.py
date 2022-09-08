@@ -2,9 +2,10 @@ from app.db import db
 
 
 class User(db.Model):
+    __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), unique=True, index=True)
-    role_id = db.Column(db.Integer, db.ForeignKey("role.id"))
+    role_id = db.Column(db.Integer, db.ForeignKey("roles.id"))
     tickets = db.relationship("Ticket", backref="user")
 
     def __init__(self, username, role_id):
@@ -16,6 +17,7 @@ class User(db.Model):
 
 
 class Role(db.Model):
+    __tablename__ = "roles"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(20), unique=True)
     users = db.relationship("User", backref="role")
@@ -28,6 +30,7 @@ class Role(db.Model):
 
 
 class Client(db.Model):
+    __tablename__ = "clients"
     id = db.Column(db.Integer, primary_key=True)
     firstname = db.Column(db.String(60))
     lastname = db.Column(db.String(60))
@@ -43,10 +46,11 @@ class Client(db.Model):
 
 
 class Ticket(db.Model):
+    ___tablename__ = "tickets"
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
-    client_id = db.Column(db.Integer, db.ForeignKey("client.id"))
-    plan_id = db.Column(db.Integer, db.ForeignKey("plan.id"))
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    client_id = db.Column(db.Integer, db.ForeignKey("clients.id"))
+    plan_id = db.Column(db.Integer, db.ForeignKey("plans.id"))
 
     def __init__(self, user_id, client_id, plan_id):
         self.user_id = user_id
@@ -58,6 +62,7 @@ class Ticket(db.Model):
 
 
 class Plan(db.Model):
+    __tablename__ = "plans"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), unique=True)
     price = db.Column(db.Float())
